@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="css/calculator.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="container my-5">
+        <!-- ВСЕ ID СОХРАНЕНЫ КАК В СТАРОМ JS -->
+        <h3 class="text-center text-primary">Calculator</h3>
+        <form class="w-25 mx-auto text-center calculator-form-styled">
+            <input id="firstOper" type="number" class="form-control mb-3 calculator-input-custom" placeholder="0">
+            
+            <select id="operation" class="form-select mb-3 calculator-select-custom">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            
+            <input id="secondOper" type="number" class="form-control mb-3 calculator-input-custom" placeholder="0">
+            
+            <button id="calculate" type="button" class="btn btn-primary d-flex mx-auto mb-3 calculator-btn-custom">Calculate</button>
+                
+            <h4 id="result" class="calculator-result-custom">0</h4>
+        </form>
+    </div>
+    
+    <ul class="pagination container justify-content-center custom-pagination">
+        <li class="page-item"><a class="page-link" href="index.html">Main</a></li>
+        <li class="page-item active"><a class="page-link" href="calculate.html">Calculator</a></li>
+    </ul>
+    
+    <script src="./js/calc.js"></script>
+</body>
+</html>

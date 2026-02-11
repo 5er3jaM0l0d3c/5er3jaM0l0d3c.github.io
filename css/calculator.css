@@ -1,0 +1,376 @@
+/* calculator.css - Стили для калькулятора с пагинацией как на главной */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(145deg, #0b2b5e 0%, #1a4a7a 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Стилизуем существующие Bootstrap классы */
+.container {
+    max-width: 500px !important;
+    background: white;
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 32px !important;
+    margin: 20px auto !important;
+}
+
+/* Заголовок */
+.text-primary {
+    color: #0b2b5e !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    margin-bottom: 32px !important;
+    padding-bottom: 16px !important;
+    border-bottom: 3px solid #eef2f6;
+    position: relative;
+}
+
+.text-primary::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #0b2b5e, #1a4a7a);
+    border-radius: 3px;
+}
+
+/* Форма - сохраняем Bootstrap классы, но улучшаем внешний вид */
+.w-25 {
+    width: 100% !important;
+    max-width: 100%;
+}
+
+/* Поля ввода */
+.form-control {
+    padding: 16px 20px !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    background: white !important;
+    transition: all 0.2s ease !important;
+    outline: none !important;
+    color: #1e293b !important;
+}
+
+.form-control:focus {
+    border-color: #0b2b5e !important;
+    box-shadow: 0 0 0 3px rgba(11, 43, 94, 0.1) !important;
+}
+
+.form-control::placeholder {
+    color: #94a3b8 !important;
+    font-size: 16px !important;
+}
+
+/* Селект */
+.form-select {
+    padding: 16px 20px !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='%230b2b5e'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 20px center !important;
+    background-size: 20px !important;
+    color: #1e293b !important;
+    cursor: pointer;
+}
+
+.form-select:focus {
+    border-color: #0b2b5e !important;
+    box-shadow: 0 0 0 3px rgba(11, 43, 94, 0.1) !important;
+}
+
+.form-select option {
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Кнопка */
+.btn-primary {
+    background: linear-gradient(145deg, #0b2b5e, #1a4a7a) !important;
+    border: none !important;
+    padding: 16px 32px !important;
+    border-radius: 16px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: white !important;
+    cursor: pointer;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+    letter-spacing: 0.5px;
+    margin-top: 8px !important;
+    box-shadow: 0 10px 20px -5px rgba(11, 43, 94, 0.2) !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(145deg, #1a4a7a, #0b2b5e) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(11, 43, 94, 0.3) !important;
+}
+
+.btn-primary:active {
+    transform: translateY(0) !important;
+}
+
+/* Результат */
+#result {
+    background: #f8fafc !important;
+    border-radius: 16px !important;
+    padding: 16px 24px !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: #0b2b5e !important;
+    margin-top: 16px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02) !important;
+    text-align: center !important;
+    transition: all 0.2s ease;
+}
+
+.custom-pagination {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.custom-pagination .page-link {
+    color: #1e3c72;
+    padding: 0.9rem 1.5rem;
+    margin: 0 5px;
+    border: none;
+    border-radius: 12px !important;
+    font-weight: 600;
+    font-size: 1rem;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.custom-pagination .page-link:hover {
+    background: linear-gradient(120deg, #1e3c72, #2a5298);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(30, 60, 114, 0.3);
+}
+
+.custom-pagination .page-item.active .page-link {
+    background: linear-gradient(120deg, #1e3c72, #2a5298);
+    color: white;
+    box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
+}
+
+/* Bootstrap утилиты */
+.d-flex {
+    display: flex !important;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.container.my-5 {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
+/* Мобильная адаптация пагинации - как на главной */
+@media (max-width: 768px) {
+    .pagination {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .page-link {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .pagination {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        gap: 5px;
+    }
+    
+    .page-link {
+        padding: 0.5rem 0.875rem !important;
+        font-size: 0.875rem !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .page-link {
+        padding: 0.4rem 0.7rem !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/* Остальная мобильная адаптация для калькулятора */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90% !important;
+        padding: 24px !important;
+        margin: 10px auto !important;
+    }
+    
+    .text-primary {
+        font-size: 28px !important;
+        margin-bottom: 24px !important;
+    }
+    
+    .form-control,
+    .form-select {
+        padding: 14px 18px !important;
+        font-size: 16px !important;
+    }
+    
+    .btn-primary {
+        padding: 14px 28px !important;
+        font-size: 16px !important;
+    }
+    
+    #result {
+        font-size: 28px !important;
+        padding: 14px 18px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 20px !important;
+    }
+    
+    .text-primary {
+        font-size: 24px !important;
+    }
+    
+    .text-primary::after {
+        width: 60px;
+    }
+    
+    .form-control,
+    .form-select {
+        padding: 12px 16px !important;
+        font-size: 15px !important;
+    }
+    
+    .btn-primary {
+        padding: 12px 24px !important;
+        font-size: 15px !important;
+    }
+    
+    #result {
+        font-size: 24px !important;
+        padding: 12px 16px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 16px !important;
+    }
+    
+    .text-primary {
+        font-size: 22px !important;
+    }
+    
+    .form-control,
+    .form-select {
+        padding: 10px 14px !important;
+        font-size: 14px !important;
+    }
+    
+    .btn-primary {
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+    }
+    
+    #result {
+        font-size: 22px !important;
+        padding: 10px 14px !important;
+    }
+}
+
+/* Альбомная ориентация */
+@media (max-width: 768px) and (orientation: landscape) {
+    .container {
+        max-width: 500px !important;
+    }
+}
+
+/* Touch устройства */
+@media (hover: none) and (pointer: coarse) {
+    .btn-primary:hover {
+        transform: none !important;
+    }
+    
+    .page-link:hover {
+        transform: none !important;
+        background-color: #0d6efd !important;
+        color: white !important;
+    }
+    
+    .btn-primary:active {
+        transform: scale(0.98) !important;
+    }
+    
+    .page-link:active {
+        transform: scale(0.95) !important;
+    }
+}
+
+/* Стиль для ошибок - поддерживаем старый JS */
+.form-control.error {
+    border-color: #dc3545 !important;
+    background-color: #fff5f5 !important;
+}
+
+#result.error-text {
+    color: #dc3545 !important;
+}
+
+/* Анимация для результата */
+@keyframes calculatePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#result.calculate-animation {
+    animation: calculatePulse 0.3s ease;
+}
+
+/* Поддержка reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

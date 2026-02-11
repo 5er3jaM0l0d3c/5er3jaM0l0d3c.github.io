@@ -1,0 +1,368 @@
+/* styles.css - Современный дизайн с полной адаптацией */
+
+/* Импорт современных шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Сброс стилей и базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9edf5 100%);
+    color: #1a2634;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Улучшенный хедер */
+.header-section {
+    background: linear-gradient(120deg, #1e3c72 0%, #2a5298 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+}
+
+.header-section h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+    position: relative;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+/* Стили для контента */
+.content-row {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    margin-bottom: 2.5rem !important;
+    padding: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.content-row:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+}
+
+.content-row::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, #1e3c72, #2a5298);
+}
+
+.content-text {
+    padding: 2rem;
+}
+
+.content-text h3 {
+    color: #1e3c72;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.content-text h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, #1e3c72, #4a90e2);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.content-row:hover .content-text h3::after {
+    width: 120px;
+}
+
+.content-text p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* Стили для изображений */
+.custom-image {
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(30, 60, 114, 0.15);
+    transition: all 0.5s ease;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.content-row:hover .custom-image {
+    transform: scale(1.05);
+    box-shadow: 0 25px 45px rgba(30, 60, 114, 0.25);
+}
+
+/* Стили для пагинации */
+.custom-pagination {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.custom-pagination .page-link {
+    color: #1e3c72;
+    padding: 0.9rem 1.5rem;
+    margin: 0 5px;
+    border: none;
+    border-radius: 12px !important;
+    font-weight: 600;
+    font-size: 1rem;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.custom-pagination .page-link:hover {
+    background: linear-gradient(120deg, #1e3c72, #2a5298);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(30, 60, 114, 0.3);
+}
+
+.custom-pagination .page-item.active .page-link {
+    background: linear-gradient(120deg, #1e3c72, #2a5298);
+    color: white;
+    box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
+}
+
+/* Анимации */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Мобильная адаптация */
+@media (max-width: 991px) {
+    .header-section h1 {
+        font-size: 2.8rem;
+    }
+    
+    .content-text h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Адаптация хедера */
+    .header-section {
+        padding: 2.5rem 1rem !important;
+        text-align: center;
+    }
+    
+    .header-section h1 {
+        font-size: 2.2rem;
+        animation: fadeIn 0.8s ease-out;
+    }
+    
+    /* Адаптация контента */
+    .content-row {
+        margin: 1rem 0.5rem 2rem !important;
+        padding: 1.2rem;
+    }
+    
+    .content-row.reverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    .content-text {
+        padding: 1.2rem 0.5rem;
+        text-align: center;
+    }
+    
+    .content-text h3 {
+        font-size: 1.8rem;
+        display: block;
+        text-align: center;
+    }
+    
+    .content-text h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+    }
+    
+    .content-row:hover .content-text h3::after {
+        width: 100px;
+    }
+    
+    .content-text p {
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .custom-image {
+        height: 250px;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Адаптация пагинации */
+    .custom-pagination {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .custom-pagination .page-link {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Маленькие мобильные устройства */
+    .header-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .content-row {
+        padding: 1rem;
+        border-radius: 15px;
+    }
+    
+    .content-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .content-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .custom-image {
+        height: 200px;
+    }
+    
+    .custom-pagination .page-link {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+    }
+    
+    .content-row::after {
+        width: 100%;
+        height: 4px;
+        top: 0;
+        left: 0;
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+    .header-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .content-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .custom-pagination .page-link {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Альбомная ориентация на мобильных */
+@media (max-width: 768px) and (orientation: landscape) {
+    .content-row {
+        display: flex;
+        align-items: center;
+    }
+    
+    .custom-image {
+        height: 200px;
+    }
+    
+    .content-text {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Планшеты в портретной ориентации */
+@media (min-width: 768px) and (max-width: 991px) and (orientation: portrait) {
+    .content-text h3 {
+        font-size: 1.9rem;
+    }
+    
+    .custom-image {
+        height: 280px;
+    }
+}
+
+/* Анимация для мобильных устройств */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Улучшения доступности */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Стили для touch-устройств */
+@media (hover: none) and (pointer: coarse) {
+    .content-row:hover {
+        transform: none;
+    }
+    
+    .content-row:active {
+        transform: scale(0.98);
+    }
+    
+    .custom-pagination .page-link:hover {
+        transform: none;
+    }
+    
+    .custom-pagination .page-link:active {
+        transform: scale(0.95);
+    }
+}
